@@ -17,7 +17,14 @@ namespace CityBikes
         public static string StationNameWithoutId(Station station)
         {
             var split = station.Name.Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
-            return split[1].Trim();
+            if (split.Length == 2)
+            {
+                return split[1].Trim();
+            }
+            else
+            {
+                return station.Name;
+            }
         }
     }
 }
